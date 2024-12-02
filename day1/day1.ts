@@ -1,8 +1,9 @@
 import inputData from "./input";
+import { similarityScore } from "./similarityScore";
 
 let numberRowList: { left: number; right: number }[] = [];
 
-function parseInputDataToLeftAndRightSide(): {
+export function parseInputDataToLeftAndRightSide(): {
   left: number[];
   right: number[];
 } {
@@ -66,6 +67,12 @@ function sumDistanceList(distanceList: number[]): number {
 }
 
 function main() {
+  part1();
+  console.log("--------------------------")
+  part2();
+}
+
+function part1() {
   const parsed = parseInputDataToLeftAndRightSide();
 
   const leftSorted = sortList(parsed.left);
@@ -76,7 +83,12 @@ function main() {
 
   const distanceList = parseDistanceList();
   const sum = sumDistanceList(distanceList);
-  console.log("Sum of distances: ", sum);
+  console.log("Part 1 answer: ", sum);
+}
+
+function part2() {
+    const score = similarityScore()
+    console.log("Part 2 answer: ", score)
 }
 
 main();
